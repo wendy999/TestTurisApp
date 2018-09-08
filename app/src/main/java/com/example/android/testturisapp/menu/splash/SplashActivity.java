@@ -1,7 +1,9 @@
-package com.example.android.testturisapp;
+package com.example.android.testturisapp.menu.splash;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.android.testturisapp.R;
 
 public class SplashActivity extends AppCompatActivity {
 
