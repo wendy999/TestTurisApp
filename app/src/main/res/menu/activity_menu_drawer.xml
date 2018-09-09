@@ -21,7 +21,4 @@
             android:icon="@drawable/re"
             android:title="Restaurants" />
     </group>
-
-
-
 </menu>
