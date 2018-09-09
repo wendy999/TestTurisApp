@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.testturisapp.R;
-import com.example.android.testturisapp.menu.Hotel.dummy.DummyContent;
+import com.example.android.testturisapp.menu.Hotel.dummy.ModeloHotel;
 
 /**
  * A fragment representing a single Hotel detail screen.
@@ -28,7 +29,7 @@ public class HotelDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private ModeloHotel.Hotel mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -41,17 +42,22 @@ public class HotelDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
+        if (getArguments().containsKey(ARG_ITEM_ID))
+        {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = ModeloHotel.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
-            if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+
+            if (appBarLayout != null)
+            {
+                appBarLayout.setTitle(mItem.nombre);
+                appBarLayout.setBackgroundResource(mItem.imagen);
             }
+
         }
     }
 
@@ -62,9 +68,11 @@ public class HotelDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.hotel_detail)).setText(mItem.details);
+            ((TextView) rootView.findViewById(R.id.txt_nombre)).setText(mItem.nombre);
+            ((TextView) rootView.findViewById(R.id.txt_description)).setText(mItem.descripcion);
+            ((TextView) rootView.findViewById(R.id.txt_ubication)).setText(mItem.ubicacion);
+            ((ImageView) rootView.findViewById(R.id.image_id)).setImageResource(mItem.imagen);
         }
-
         return rootView;
     }
 }

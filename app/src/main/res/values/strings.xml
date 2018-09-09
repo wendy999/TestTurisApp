@@ -10,4 +10,7 @@
     <string name="title_restaurant_detail">Restaurant Detail</string>
     <string name="title_hotel_list">Hoteles</string>
     <string name="title_hotel_detail">Hotel Detail</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="ubication">Ubication</string>
 </resources>
