@@ -50,7 +50,8 @@ public class RestaurantDetailFragment extends Fragment {
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.name);
+                appBarLayout.setBackgroundResource(mItem.image);
             }
         }
     }
@@ -62,7 +63,8 @@ public class RestaurantDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.restaurant_detail)).setText(mItem.details);
+            ((TextView) rootView.findViewById(R.id.restaurant_detail)).setText(mItem.description);
+
         }
 
         return rootView;
