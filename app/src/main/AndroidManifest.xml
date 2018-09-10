@@ -24,6 +24,11 @@
             android:name=".menu.restaurant.RestaurantListActivity"
             android:label="@string/title_restaurant_list"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.android.testturisapp.menu.MenuActivity" />
+
         <activity
             android:name=".menu.restaurant.RestaurantDetailActivity"
             android:label="@string/title_restaurant_detail"
@@ -50,6 +55,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.testturisapp.menu.Hotel.HotelListActivity" />
         </activity>
+        <activity android:name=".aboutus.AboutUsActivity"></activity>
     </application>
 
 </manifest>

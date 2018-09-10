@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.example.android.testturisapp.R;
 import com.example.android.testturisapp.menu.Hotel.HotelListActivity;
+import com.example.android.testturisapp.menu.restaurant.RestaurantListActivity;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -93,6 +94,9 @@ public class MenuActivity extends AppCompatActivity
              startActivity(intent);
 
         } else if (id == R.id.nav_restaurant) {
+
+             Intent intent= new Intent(MenuActivity.this, RestaurantListActivity.class);
+             startActivity(intent);
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
