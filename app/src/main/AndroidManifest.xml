@@ -28,6 +28,7 @@
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.android.testturisapp.menu.MenuActivity" />
+
         <activity
             android:name=".menu.restaurant.RestaurantDetailActivity"
             android:label="@string/title_restaurant_detail"
@@ -40,9 +41,7 @@
         <activity
             android:name=".menu.Hotel.HotelListActivity"
             android:label="@string/title_hotel_list"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".menu.Hotel.HotelDetailActivity"
             android:label="@string/title_hotel_detail"
@@ -52,6 +51,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.testturisapp.menu.Hotel.HotelListActivity" />
         </activity>
+        <activity android:name=".aboutus.AboutUsActivity"></activity>
     </application>
 
 </manifest>
