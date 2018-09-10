@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="@string/nombre"
+                    android:text="nombre"
                     android:textAppearance="?attr/textAppearanceListItem"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txt_nombre"
                     android:layout_marginLeft="10dp"
-                    android:text="@string/descripcion"
+                    android:text="descripcion"
                     android:textAppearance="?attr/textAppearanceListItem"
                     android:textSize="15dp"
                     android:textStyle="normal" />
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="55dp"
-                    android:text="@string/ubication"
+                    android:text="ubication"
                     android:textAppearance="?attr/textAppearanceListItem"
                     android:textSize="10dp"
                     android:textStyle="normal" />
