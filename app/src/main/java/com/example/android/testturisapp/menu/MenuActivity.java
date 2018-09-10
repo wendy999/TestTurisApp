@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.android.testturisapp.R;
 import com.example.android.testturisapp.menu.Hotel.HotelListActivity;
 import com.example.android.testturisapp.menu.restaurant.RestaurantListActivity;
+import com.example.android.testturisapp.menu.site.SiteListActivity;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,6 +89,9 @@ public class MenuActivity extends AppCompatActivity
          if (id == R.id.nav_home) {
 
         } else if (id == R.id.nav_sites) {
+
+             Intent intent = new Intent(MenuActivity.this, SiteListActivity.class);
+             startActivity(intent);
 
         } else if (id == R.id.nav_hotel) {
              Intent intent= new Intent(MenuActivity.this, HotelListActivity.class);
