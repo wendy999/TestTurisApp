@@ -34,7 +34,7 @@ public class ModeloHotel {
     public static final Map<String, Hotel> ITEM_MAP = new HashMap<String, Hotel>();
 
     // CONSTRUCTOR
-    public ModeloHotel(Context context) 
+    private ModeloHotel(Context context)
     {
         this.crudHotel = CrudHotel.getInstance(context);
         this.cargarHoteles();
@@ -53,9 +53,10 @@ public class ModeloHotel {
     {
         Cursor cursorHoteles = this.crudHotel.buscarHoteles();
 
-        while (cursorHoteles.moveToNext())
+        while (cursorHoteles.moveToNext(   ))
         {
             Hotel hotel = new Hotel(cursorHoteles);
+
             addItem(hotel);
         }
     }
@@ -123,5 +124,7 @@ public class ModeloHotel {
         public int getImagen() {
             return imagen;
         }
+
     }
+
 }

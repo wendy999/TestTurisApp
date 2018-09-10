@@ -36,11 +36,13 @@ public class HotelListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    private ModeloHotel modeloHotel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list);
+        this.modeloHotel = ModeloHotel.getInstance(this.getApplicationContext());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

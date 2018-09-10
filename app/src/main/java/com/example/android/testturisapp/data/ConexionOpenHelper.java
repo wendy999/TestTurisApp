@@ -15,6 +15,8 @@ public class ConexionOpenHelper extends SQLiteOpenHelper
     private static final String DATA_BASE_NAME = "turisapp.db";
     private static final int VERSION = 1;
 
+
+
     public ConexionOpenHelper(Context contexto)
     {
         super(contexto, DATA_BASE_NAME, null, VERSION);

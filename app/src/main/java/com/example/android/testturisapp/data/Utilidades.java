@@ -12,9 +12,9 @@ public class Utilidades
     public final static String HOTEL_UBICACION="ubicacion";
     public final static String IMAGEN="imagen";
 
-    public static final String CREAR_TABLA_HOTEL="CREATE TABLE "+TABLA_HOTEL+"("
-                                            +_ID+"INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                                            HOTEL_NOMBRE+"TEXT,"+HOTEL_DESCRIPCION+"TEXT,"+HOTEL_UBICACION+"TEXT,"+IMAGEN+"INTEGER)";
+    public static final String CREAR_TABLA_HOTEL="CREATE TABLE "+TABLA_HOTEL+" ( "
+                                            +_ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                                            HOTEL_NOMBRE+"TEXT,"+HOTEL_DESCRIPCION+" TEXT,"+HOTEL_UBICACION+" TEXT,"+IMAGEN+" INTEGER)";
 
     }
 
