@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_icon_airplane_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,17 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".menu.MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".menu.restaurant.RestaurantListActivity"
             android:label="@string/title_restaurant_list"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".menu.MenuActivity"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -36,21 +32,16 @@
         <activity
             android:name=".menu.restaurant.RestaurantDetailActivity"
             android:label="@string/title_restaurant_detail"
-            android:parentActivityName=".menu.MenuActivity"
+            android:parentActivityName=".menu.restaurant.RestaurantListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.testturisapp.menu.restaurant.RestaurantListActivity" />
         </activity>
-
         <activity
             android:name=".menu.Hotel.HotelListActivity"
             android:label="@string/title_hotel_list"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".menu.MenuActivity">
-
-        </activity>
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".menu.Hotel.HotelDetailActivity"
             android:label="@string/title_hotel_detail"
@@ -60,17 +51,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.testturisapp.menu.Hotel.HotelListActivity" />
         </activity>
-
-        <activity android:name=".aboutus.AboutUsActivity">
-
+        <activity android:name=".aboutus.AboutUsActivity" />
+        <activity
+            android:name=".menu.site.SiteListActivity"
+            android:label="@string/title_site_list"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".menu.site.SiteDetailActivity"
+            android:label="@string/title_site_detail"
+            android:parentActivityName=".menu.site.SiteListActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.testturisapp.menu.site.SiteListActivity" />
         </activity>
-        <activity android:name=".menu.site.SiteDetailActivity">
-
-        </activity>
-        <activity android:name=".menu.site.SiteListActivity">
-
-        </activity>
-
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.testturisapp.R;
@@ -44,6 +45,8 @@ public class SiteListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -116,8 +119,10 @@ public class SiteListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.name.setText(mValues.get(position).name);
+            holder.description.setText(mValues.get(position).description);
+            holder.ubication.setText(mValues.get(position).ubication);
+            holder.image.setImageResource(mValues.get(position).image);
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -129,13 +134,18 @@ public class SiteListActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
-            final TextView mContentView;
+            final TextView name;
+            final TextView description;
+            final TextView ubication;
+            final ImageView image;
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
-                mContentView = (TextView) view.findViewById(R.id.content);
+
+                name = (TextView) view.findViewById(R.id.txt_name);
+                description = (TextView) view.findViewById(R.id.txt_description);
+                ubication = (TextView) view.findViewById(R.id.txt_ubication);
+                image = (ImageView) view.findViewById(R.id.image_id);
             }
         }
     }
