@@ -12,11 +12,12 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.testturisapp.R;
 
-import com.example.android.testturisapp.menu.Hotel.dummy.DummyContent;
+import com.example.android.testturisapp.menu.Hotel.dummy.ModeloHotel;
 
 import java.util.List;
 
@@ -35,18 +36,21 @@ public class HotelListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    private ModeloHotel modeloHotel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list);
+        this.modeloHotel = ModeloHotel.getInstance(this.getApplicationContext());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+        ///arrow
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+      /**/
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +60,8 @@ public class HotelListActivity extends AppCompatActivity {
             }
         });
 
-        if (findViewById(R.id.hotel_detail_container) != null) {
+        if (findViewById(R.id.hotel_detail_container) != null)
+        {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -70,28 +75,34 @@ public class HotelListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, ModeloHotel.ITEMS, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final HotelListActivity mParentActivity;
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<ModeloHotel.Hotel> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
-                if (mTwoPane) {
+            public void onClick(View view)
+            {
+                ModeloHotel.Hotel item = (ModeloHotel.Hotel) view.getTag();
+                if (mTwoPane)
+                {
                     Bundle arguments = new Bundle();
+
                     arguments.putString(HotelDetailFragment.ARG_ITEM_ID, item.id);
                     HotelDetailFragment fragment = new HotelDetailFragment();
                     fragment.setArguments(arguments);
+
                     mParentActivity.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.hotel_detail_container, fragment)
                             .commit();
-                } else {
+                }
+                else
+                {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, HotelDetailActivity.class);
                     intent.putExtra(HotelDetailFragment.ARG_ITEM_ID, item.id);
@@ -102,7 +113,7 @@ public class HotelListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(HotelListActivity parent,
-                                      List<DummyContent.DummyItem> items,
+                                      List<ModeloHotel.Hotel> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
@@ -117,27 +128,38 @@ public class HotelListActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+        public void onBindViewHolder(final ViewHolder holder, int position)
+        {
+            holder.mNombreView.setText(mValues.get(position).nombre);
+            holder.mDescripcionView.setText(mValues.get(position).descripcion);
+            holder.mUbicacionView.setText(mValues.get(position).ubicacion);
+            holder.mImagenView.setImageResource(mValues.get(position).imagen);
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
         }
 
         @Override
-        public int getItemCount() {
+        public int getItemCount()
+        {
             return mValues.size();
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
-            final TextView mContentView;
+        class ViewHolder extends RecyclerView.ViewHolder
+        {
+            final TextView mNombreView;
+            final TextView mDescripcionView;
+            final TextView mUbicacionView;
+            final ImageView mImagenView;
 
-            ViewHolder(View view) {
+
+            ViewHolder(View view)
+            {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                mNombreView = (TextView) view.findViewById(R.id.txt_nombre);
+                mDescripcionView = (TextView) view.findViewById(R.id.txt_description);
+                mUbicacionView = (TextView) view.findViewById(R.id.txt_ubication);
+                mImagenView = (ImageView) view.findViewById(R.id.image_id);
             }
         }
     }
