@@ -35,50 +35,18 @@ public class ModelSite {
      */
     public static final Map<String, Site> ITEM_MAP = new HashMap<String, Site>();
 
-
-    /*
-     private static final int COUNT = 25;
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
-    }*/
-
-    /*
-    private static void addItem(Site item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }*/
-
-    /*
-    static {
-
-        addItem(new Site("Catedral", "beautiful","Pereira", R.drawable.catedral));
-        addItem(new Site("Centro Lucy Tejada", "beautiful","Pereira" , R.drawable.centrolucytejada));
-        addItem(new Site("Plaza Bolivar", "beautiful","Pereira" , R.drawable.plazabolivar));
-        addItem(new Site("Ukumari", "beautiful","Pereira" , R.drawable.ukumari));
-    }
-    */
-
-    /*
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }*/
-
     private ModelSite(Context context)
     {
         this.crudSite = CrudSite.getInstance(context);
         this.loadSites();
     }
 
-    public  static ModelSite getInstance(Context context){
+    public static ModelSite getInstance(Context context){
 
         if (modelSite == null)
         {
             modelSite = new ModelSite(context);
         }
-
         return modelSite;
     }
 
@@ -109,8 +77,7 @@ public class ModelSite {
         return UUID.randomUUID().toString();
     }
 
-    private void addSite(Site site) {
-
+    private static void addSite(Site site) {
         ITEMS.add(site);
         ITEM_MAP.put(site.id, site);
     }
@@ -127,13 +94,12 @@ public class ModelSite {
         public final int image;
 
         public Site(String name, String description, String ubication, int Image) {
-            this.id = generateId();
+            this.id = ModelSite.generateId();
             this.name = name;
             this.description = description;
             this.ubication = ubication;
             this.image = Image;
         }
-
 
         public Site(Cursor cursor)
         {
@@ -175,12 +141,6 @@ public class ModelSite {
         public int getImage() {
             return image;
         }
-        /*
-        @Override
-        public String toString() {
-            return description;
-        }*/
+
     }
-
-
 }

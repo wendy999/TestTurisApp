@@ -78,10 +78,7 @@ public class ConexionOpenHelper extends SQLiteOpenHelper
     {
         return db.insert(Tablas.HOTEL,null,hotel.contentValues());
     }
-
     ////////          SITES            //////////////////////////////////
-
-
 
     public void loadDataSites(SQLiteDatabase db)
     {
@@ -114,8 +111,6 @@ public class ConexionOpenHelper extends SQLiteOpenHelper
     {
         return db.insert(Tablas.SITIO,null, site.contentValues());
     }
-
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+Tablas.HOTEL);

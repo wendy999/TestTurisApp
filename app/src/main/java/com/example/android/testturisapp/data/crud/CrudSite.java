@@ -17,8 +17,6 @@ public class CrudSite {
     private static CrudSite instance = new CrudSite();
 
     public CrudSite(){
-
-
     }
 
     public static CrudSite getInstance(Context context)
