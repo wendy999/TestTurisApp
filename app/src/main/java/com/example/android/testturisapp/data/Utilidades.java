@@ -27,7 +27,7 @@ public class Utilidades
         public static final String SITIO_IMAGEN="imagen";
 
         public static final String CREAR_TABLA_SITIO="CREATE TABLE "+TABLA_SITIO+"("+
-                                                _ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                                                _ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
                                                 SITIO_NOMBRE+" TEXT,"+SITIO_DESCRIPCION+ " TEXT,"+SITIO_UBICACION+" TEXT,"+SITIO_IMAGEN+" TEXT)";
     }
 

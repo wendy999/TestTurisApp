@@ -17,7 +17,8 @@ import android.widget.TextView;
 
 import com.example.android.testturisapp.R;
 
-import com.example.android.testturisapp.menu.site.dummy.DummyContent;
+import com.example.android.testturisapp.menu.Hotel.dummy.ModeloHotel;
+import com.example.android.testturisapp.menu.site.dummy.ModelSite;
 
 import java.util.List;
 
@@ -36,17 +37,22 @@ public class SiteListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    private ModelSite modelSite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_site_list);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        this.modelSite = ModelSite.getInstance(this.getApplicationContext());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -71,19 +77,19 @@ public class SiteListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, ModelSite.ITEMS, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final SiteListActivity mParentActivity;
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<ModelSite.Site> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+                ModelSite.Site item = (ModelSite.Site) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(SiteDetailFragment.ARG_ITEM_ID, item.id);
@@ -103,7 +109,7 @@ public class SiteListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(SiteListActivity parent,
-                                      List<DummyContent.DummyItem> items,
+                                      List<ModelSite.Site> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
