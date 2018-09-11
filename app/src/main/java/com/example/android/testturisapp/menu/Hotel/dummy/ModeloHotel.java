@@ -40,6 +40,7 @@ public class ModeloHotel {
         this.cargarHoteles();
     }
 
+    // Instancia del pojo Hotel
     public static ModeloHotel getInstance(Context context)
     {
         if (modeloHotel==null)
@@ -48,7 +49,8 @@ public class ModeloHotel {
         }
         return modeloHotel;
     }
-    //////////////////////////// SE ME OLVIDA !!!!!!!!!!!!!!!
+
+    //  Cargar objetos Hoteles
     private void cargarHoteles()
     {
         Cursor cursorHoteles = this.crudHotel.buscarHoteles();
@@ -60,7 +62,7 @@ public class ModeloHotel {
             addItem(hotel);
         }
     }
-
+    // Generar Id Automatico
     private static String generarId()
     {
         return UUID.randomUUID().toString();

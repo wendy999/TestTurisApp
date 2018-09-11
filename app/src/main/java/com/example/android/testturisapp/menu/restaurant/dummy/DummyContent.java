@@ -41,8 +41,6 @@ public class DummyContent {
     }
 
     static {
-
-
         addItem(new DummyItem("Piccolo", "Delicious", "Pereira", R.drawable.piccolo));
         addItem(new DummyItem("La Ruana", "Amazing", "Pereira", R.drawable.laruana1));
         addItem(new DummyItem("Las Cayanas", "Fantastic", "Pereira", R.drawable.lascayanas));
@@ -87,9 +85,5 @@ public class DummyContent {
             this.image = image;
         }
 
-        @Override
-        public String toString() {
-            return description;
-        }
     }
 }
